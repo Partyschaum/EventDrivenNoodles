@@ -7,8 +7,14 @@
  */
 class Autoloader
 {
+    /** @var Autoloader */
     private static $_instance = null;
 
+    /**
+     * Register the Autoloader.
+     *
+     * @static
+     */
     public static function register()
     {
         if (is_null(self::$_instance)) {
@@ -17,6 +23,11 @@ class Autoloader
         }
     }
 
+    /**
+     * Load a class by it's name.
+     *
+     * @param string $class
+     */
     private function load($class)
     {
         $file = __DIR__ . '/' . $class . '.php';

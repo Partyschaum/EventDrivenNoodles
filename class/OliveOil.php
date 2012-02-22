@@ -5,7 +5,7 @@
  * User: hauke
  * Date: 22.02.12 21:50
  */
-class OliveOil
+class OliveOil extends AbstractIngredient
 {
     public function __construct()
     {
