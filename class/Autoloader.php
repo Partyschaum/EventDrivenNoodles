@@ -31,7 +31,6 @@ class Autoloader
     private function load($class)
     {
         $file = __DIR__ . '/' . $class . '.php';
-        echo 'Loading ' . $file . "\n";
         if (file_exists($file)) {
             include $file;
         }
