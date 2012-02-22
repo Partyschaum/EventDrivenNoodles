@@ -54,4 +54,28 @@ class Pan implements ServiceProvider
     {
         $this->_eventLoop->executeLater($duration, $callback);
     }
+
+    /**
+     * Checks if the given ingredient is in the pan.
+     *
+     * @param Ingredient|string $ingredient
+     * @return bool
+     */
+    public function contains($ingredient)
+    {
+        if ($ingredient instanceof Ingredient) {
+            $hash = spl_object_hash($ingredient);
+            if (in_array($hash, $this->_ingredients)) {
+                return true;
+            }
+        }
+
+        foreach ($this->_ingredients as $curIngredient) {
+            if ($curIngredient->getName() == $ingredient) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

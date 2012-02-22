@@ -7,13 +7,24 @@
  */
 class Plate
 {
+    /** @var array */
     private $_contents = array();
 
-    public function addContentsOf($content)
+    /**
+     * Add the pan's content to the plate.
+     *
+     * @param Pan $content
+     */
+    public function addContentsOf(Pan $content)
     {
         $this->_contents[] = $content;
     }
 
+    /**
+     * Serve the food with a nice message.
+     *
+     * @param $message
+     */
     public function serve($message)
     {
         echo $message . "\n";

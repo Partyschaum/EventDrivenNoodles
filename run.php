@@ -14,7 +14,7 @@ $eventLoop = new EventLoop();
 $pastaPan = new Pan($eventLoop);
 $saucePan = new Pan($eventLoop);
 $water = new Water();
-$plate = new Plate();
+$plate = new PlateOfSpaghettiWithSauce();
 
 $pastaPan->fill($water);
 echo "pastaPan: Starting to boil water\n";
@@ -50,5 +50,3 @@ $eventLoop->executeLater(7, function() use ($plate, $eventLoop) {
 });
 
 $eventLoop->start();
-
-$plate->serve('Voilà');
