@@ -11,23 +11,13 @@ include 'class/Autoloader.php';
 Autoloader::register();
 
 $eventLoop = new EventLoop();
-$pastaPan = new Pan($eventLoop);
-$water = new Water();
 
-$pastaPan->fill($water);
+$pan = new Pan($eventLoop);
 
-$pastaPan->fill(new Spaghetti());
+echo "Starting to warm\n";
 
-$pastaPan->remove($water);
+$pan->warm(10, function() {
+    echo "Now it's cooked\n";
+});
 
-$saucePan = new Pan($eventLoop);
-$saucePan->fill(new OliveOil());
-
-$saucePan->fill(new Mirepoix());
-
-$saucePan->fill(new Tomato());
-
-$plate = new Plate();
-$plate->addContentsOf($pastaPan);
-$plate->addContentsOf($saucePan);
-$plate->serve('Voilá');
+$eventLoop->start();

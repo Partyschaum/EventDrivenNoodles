@@ -38,6 +38,9 @@ class EventLoop
         foreach ($this->_callbacksForTick[$this->_tick] as $callback) {
             call_user_func($callback, $this);
         }
+
+        // clean up
+        unset($this->_callbacksForTick[$this->_tick]);
     }
 
     /**
@@ -48,6 +51,6 @@ class EventLoop
      */
     public function executeLater($delay, $callback)
     {
-        $this->_callbacksForTick[$this->_tick + $delay][] = $callback;
+        $this->_callbacksForTick[$this->_tick + $delay] []= $callback;
     }
 }
